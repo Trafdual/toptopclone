@@ -7,12 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCircleXmark,
   faSpinner,
-  faMagnifyingGlass,
   faEllipsisVertical,
   faEarthAsia,
   faKeyboard,
   faCircleQuestion,
-  faCloudUpload,
   faUser,
   faCoins,
   faGear,
@@ -26,6 +24,8 @@ import 'tippy.js/dist/tippy.css'
 import AccountItem from '~/Component/AccountItem'
 import Button from '~/Component/Button'
 import Menu from '~/Component/Popper/Menu'
+import { SearchIcon, UploadIcon } from '~/Component/icons'
+import Image from '~/Component/Images'
 
 const cx = classNames.bind(styles)
 
@@ -90,7 +90,7 @@ function Header () {
       icon: <FontAwesomeIcon icon={faSignOut} />,
       title: 'Log out',
       to: '/logout',
-      separate:true
+      separate: true
     }
   ]
 
@@ -128,7 +128,7 @@ function Header () {
             <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <SearchIcon />
             </button>
           </div>
         </HeadlessTippy>
@@ -137,7 +137,7 @@ function Header () {
             <>
               <Tippy delay={200} content='Upload video' placement='bottom'>
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faCloudUpload} />
+                  <UploadIcon />
                 </button>
               </Tippy>
             </>
@@ -155,7 +155,7 @@ function Header () {
             onChange={handleMenuChange}
           >
             {currenUser ? (
-              <img
+              <Image
                 src='https://gcs.tripi.vn/public-tripi/tripi-feed/img/474014bom/anh-gai-xinh-cute-de-thuong-hot-girl-2.jpg'
                 className={cx('user-avatar')}
                 alt='Nguyen Van A'
