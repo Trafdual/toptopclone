@@ -1,0 +1,62 @@
+        @import 'normalize.css';
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+         :root {
+            --primary: #fe2c55;
+            //Default Layout
+            --default-layout-header-height: 60px;
+            --default-layout-with: 1150px;
+            --default-layout-horizontal-spacer: 24px;
+            --black: #000;
+            --text-color: #161823;
+            --white: #fff
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 62.5%;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem;
+            line-height: 1.5;
+            text-rendering: optimizeSpeed;
+            color: var(--text-color);
+        }
+        
+        button,
+        input,
+        [tabindex] {
+            border: none;
+            outline: none;
+        }
+        
+        a[href] {
+            text-decoration: none;
+            ;
+            color: var(--text-color);
+        }
+        
+        body {
+            .tippy-box {
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 1.6rem;
+                line-height: 2.2rem;
+                background-color: rgba(84, 84, 84, 0.92);
+            }
+            .tippy-arrow {
+                color: rgba(84, 84, 84, 0.92);
+            }
+            .tippy-content {
+                padding: 8px 9px;
+            }
+            .tippy-box[data-placement^="bottom"]>.tippy-arrow:before {
+                top: -8px;
+            }
+        }
