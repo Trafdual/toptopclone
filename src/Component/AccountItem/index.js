@@ -1,23 +1,26 @@
 import classNames from 'classnames/bind'
 import styles from './AccountItem.module.scss'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCheckCircle} from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import Image from '../Images'
 
 const cx = classNames.bind(styles)
 
-function AccountItem () {
+function AccountItem ({ data }) {
   return (
-    <div className={cx('wrapper')}>
-      <img className={cx('avatar')} src='https://gcs.tripi.vn/public-tripi/tripi-feed/img/474014bom/anh-gai-xinh-cute-de-thuong-hot-girl-2.jpg' alt='' />
+    <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+      <Image className={cx('avatar')} src={data.avatar} alt={data.full_name} />
       <div className={cx('info')}>
         <h4 className={cx('name')}>
-            <span>Nguyễn Văn A</span>
-            <FontAwesomeIcon className={cx('check')} icon={faCheckCircle}/>
-            </h4>
-        <span className={cx('username')}>nguyenvana</span>
-
+          <span>{data.full_name}</span>
+          {data.tick && (
+            <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+          )}
+        </h4>
+        <span className={cx('username')}>{data.nickname}</span>
       </div>
-    </div>
+    </Link>
   )
 }
 
