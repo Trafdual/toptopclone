@@ -53,54 +53,55 @@ function Search () {
     if (!searchValue.startsWith(' ')) {
       setSearchValue(searchValue)
     }
-
   }
 
-  const handleSubmit = e =>{
+  const handleSubmit = e => {
     e.preventDefault()
   }
 
   return (
-    <HeadlessTippy
-      interactive
-      visible={showResults && searchResult.length > 0}
-      render={attrs => (
-        <div className={cx('search-result')} tabIndex='-1' {...attrs}>
-          <ProperWrapper>
-            <h4 className={cx('search-title')}>Account</h4>
-            {searchResult.map(value => (
-              <AccountItem key={value.id} data={value} />
-            ))}
-          </ProperWrapper>
-        </div>
-      )}
-      onClickOutside={handelHideResults}
-    >
-      <div className={cx('search')}>
-        <input
-          type='text'
-          ref={inputRef}
-          value={searchValue}
-          placeholder='Search account and video'
-          spellCheck={false}
-          onChange={handelChange}
-          onFocus={() => setshowResults(true)}
-        />
-        {!!searchValue && !loading && (
-          <button className={cx('clear')}>
-            <FontAwesomeIcon icon={faCircleXmark} onClick={handelClear} />
+    <div>
+      <HeadlessTippy
+        interactive
+        visible={showResults && searchResult.length > 0}
+        render={attrs => (
+          <div className={cx('search-result')} tabIndex='-1' {...attrs}>
+            <ProperWrapper>
+              <h4 className={cx('search-title')}>Account</h4>
+              {searchResult.map(value => (
+                <AccountItem key={value.id} data={value} />
+              ))}
+            </ProperWrapper>
+          </div>
+        )}
+        onClickOutside={handelHideResults}
+      >
+        <div className={cx('search')}>
+          <input
+            type='text'
+            ref={inputRef}
+            value={searchValue}
+            placeholder='Search account and video'
+            spellCheck={false}
+            onChange={handelChange}
+            onFocus={() => setshowResults(true)}
+          />
+          {!!searchValue && !loading && (
+            <button className={cx('clear')}>
+              <FontAwesomeIcon icon={faCircleXmark} onClick={handelClear} />
+            </button>
+          )}
+
+          {loading && (
+            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+          )}
+
+          <button className={cx('search-btn')} onMouseDown={handleSubmit}>
+            <SearchIcon />
           </button>
-        )}
-
-        {loading && (
-          <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-        )}
-
-        <button className={cx('search-btn')} onMouseDown={handleSubmit}>
-          <SearchIcon />
-        </button>
-      </div>
-    </HeadlessTippy>
+        </div>
+      </HeadlessTippy>
+    </div>
   )
 }
 
