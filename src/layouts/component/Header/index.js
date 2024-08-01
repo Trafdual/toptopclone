@@ -16,11 +16,11 @@ import {
 import Tippy from '@tippyjs/react'
 
 import 'tippy.js/dist/tippy.css'
-import routes from '~/config/routes'
-import Button from '~/Component/Button'
-import Menu from '~/Component/Popper/Menu'
-import { InboxIcon, MessageIcon, UploadIcon } from '~/Component/icons'
-import Image from '~/Component/Images'
+import config from '~/config'
+import Button from '~/components/Button'
+import Menu from '~/components/Popper/Menu'
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/icons'
+import Image from '~/components/Images'
 import Search from '../Search'
 import { Link } from 'react-router-dom'
 
@@ -34,7 +34,7 @@ const MENU_ITEMS = [
       title: 'Language',
       data: [
         { type: 'language', code: 'en', title: 'English' },
-        { type: 'language', code: 'vi', title: 'Tiếng Việt' },
+        { type: 'language', code: 'vi', title: 'Tiếng Việt' }
       ]
     }
   },
@@ -88,7 +88,7 @@ function Header () {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <div className={cx('logo')}>
-          <Link to={routes.home} className={cx('logo-link')}>
+          <Link to={config.routes.home} className={cx('logo-link')}>
             <img src={images.logo} alt='' />
           </Link>
         </div>
